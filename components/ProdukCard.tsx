@@ -13,7 +13,7 @@ interface Product {
   ownerName: string;
   priceProduct: string;
   selectedEcommerce: string;
-  ecommerceLink: string;
+  ecommerceLink?: string; // ecommerceLink bisa saja tidak ada
   whatsappNumber: string;
 }
 
@@ -29,11 +29,11 @@ const formatRupiah = (number: string) => {
 };
 
 const ProdukCard: React.FC<ProdukCardProps> = ({ product }) => {
-  const ecommerceLink = product.ecommerceLink || "#";
+  const ecommerceLink = product.ecommerceLink || "#"; // Fallback jika ecommerceLink tidak ada
 
   return (
     <Card sx={{ width: 370, padding: 2 }}>
-      {/* Tambahkan margin di bawah judul dan deskripsi */}
+      {/* Card Link */}
       <Link href={`/produk/${product.id}`} className="block mb-2" passHref>
         <Typography level="title-lg" sx={{ mb: 1 }}>
           {product.productName}
@@ -42,23 +42,24 @@ const ProdukCard: React.FC<ProdukCardProps> = ({ product }) => {
           {product.ownerName} | {product.selectedEcommerce}
         </Typography>
 
-        {/* Tambahkan margin di bawah gambar */}
+        {/* Gambar Produk */}
         <AspectRatio minHeight="20px" maxHeight="250px" sx={{ mb: 2 }}>
           <img
             src={product.imageUrl}
             alt={product.productName}
             loading="lazy"
+            style={{ borderRadius: "8px", objectFit: "cover" }} // Styling untuk gambar
           />
         </AspectRatio>
 
-        {/* Tambahkan padding antar elemen */}
+        {/* Informasi Harga */}
         <CardContent
           orientation="horizontal"
           sx={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            paddingTop: 2, // Memberi jarak atas elemen harga
+            paddingTop: 2,
           }}
         >
           <div>
