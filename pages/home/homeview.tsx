@@ -45,7 +45,7 @@ export default function HomePage() {
 
   return (
     <div id="home" className="h-full min-h-screen">
-      <div className="mx-auto max-w-7xl mt-20 px-6 pt-6  md:px-16  md:mt-4">
+      <div className="mx-auto mt-20 px-6 pt-6  md:px-16  md:mt-4">
         <motion.div className="flex flex-col xl:flex-row items-center text-white justify-between xl:pt-8 ">
           <motion.div
             variants={setVariantsText}

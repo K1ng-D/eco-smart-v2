@@ -9,7 +9,7 @@ export default function FAQView() {
   return (
     <section className="py-12">
       <div className="text-start max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto">
-        <h2 className="text-[#2f7d32] text-4xl font-bold mb-4 text-center">
+        <h2 className="text-[#2f7d32] text-4xl sm:text-5xl font-bold mb-8 text-center">
           FAQ
         </h2>
         <Accordion type="single" collapsible className="w-full">
@@ -42,12 +42,12 @@ export default function FAQView() {
               Apa saja produk dari Komunitas Unit Katon Selika?
             </AccordionTrigger>
             <AccordionContent>
-              Produk:
-              <ol className="list-decimal ml-6">
+              <p>Produk:</p>
+              <ol className="list-decimal ml-6 space-y-2">
                 <li>Bunjel Katsu: Sabun Mijel Katon Semilak</li>
                 <li>
-                  Aneka ketrampilan daur ulang:
-                  <ul className="list-disc ml-6">
+                  Aneka keterampilan daur ulang:
+                  <ul className="list-disc ml-6 space-y-1">
                     <li>Bros kain perca</li>
                     <li>Taplak meja kain perca</li>
                     <li>Gantungan kunci</li>
@@ -58,7 +58,7 @@ export default function FAQView() {
                 </li>
                 <li>
                   Batik ecoprint:
-                  <ul className="list-disc ml-6">
+                  <ul className="list-disc ml-6 space-y-1">
                     <li>Tote bag</li>
                     <li>Kain</li>
                     <li>Baju</li>

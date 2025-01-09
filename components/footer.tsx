@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 const MotionImage = motion(Image);
+
 const Footer = () => {
   const pathname = usePathname();
 
@@ -26,10 +27,11 @@ const Footer = () => {
           layout="responsive"
           width={1500}
           height={500}
+          className="max-w-full"
         />
       </div>
 
-      <footer className="bg-[#2c8d32] text-gray-200 py-10 px-4 md:px-16">
+      <footer className="bg-[#2c8d32] text-gray-200 py-10 px-4 sm:px-8 md:px-16">
         {/* Footer Content */}
         <div className="max-w-7xl mx-auto mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left">
           {/* PESAN */}

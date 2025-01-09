@@ -1,14 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebaseConfig";
 import BeritaCard from "@/components/BeritaCard";
 import ProdukCardSkeleton from "@/components/ProdukCardSkeleton";
 
-// Variants didefinisikan sebagai objek di luar komponen
+// Variants defined outside the component for reusability
 const variants = {
   offscreen: {
     y: 150,
@@ -19,7 +18,7 @@ const variants = {
     opacity: 1,
     transition: {
       type: "spring",
-      duration: 1.5, // Mengatur nilai default untuk duration
+      duration: 1.5,
     },
   },
 };
@@ -37,7 +36,7 @@ export default function BeritaKamiSection() {
   const [newsData, setNewsData] = useState<News[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Mengambil data berita dari Firestore
+  // Fetching news data from Firestore
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -64,7 +63,7 @@ export default function BeritaKamiSection() {
     fetchNews();
   }, []);
 
-  // Format tanggal untuk ditampilkan dengan format Indonesia
+  // Formatting date to Indonesian format
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = {
       weekday: "long",
@@ -77,7 +76,7 @@ export default function BeritaKamiSection() {
 
   if (loading) {
     return (
-      <section className="min-h-screen flex items-center justify-center py-12 ">
+      <section className="min-h-screen flex items-center justify-center py-12">
         <motion.div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
             <h2 className="text-[#2f7d32] text-4xl font-bold mb-4">

@@ -25,7 +25,7 @@ export default function AboutPage() {
 
   return (
     <div id="about" className="min-h-screen bg-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-16 lg:px-16 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-20">
         <motion.div className="flex flex-col lg:flex-row items-center gap-16">
           <motion.div
             variants={setVariants}
@@ -53,7 +53,7 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.3 }}
             className="w-full lg:w-1/2"
           >
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#2f7d32] mb-8">
+            <h1 className="text-4xl sm:text-5xl text-center font-bold text-[#2f7d32] mb-8">
               TENTANG KAMI
             </h1>
             <div className="space-y-6 text-lg">

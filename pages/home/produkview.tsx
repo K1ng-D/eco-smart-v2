@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebaseConfig";
 import { FaArrowRight } from "react-icons/fa";
@@ -8,7 +8,7 @@ import Link from "next/link";
 import ProdukCard from "@/components/ProdukCard";
 import ProdukCardSkeleton from "@/components/ProdukCardSkeleton";
 
-// Variants sekarang didefinisikan sebagai objek, bukan fungsi
+// Animation variants for framer-motion
 const variants = {
   offscreen: {
     y: 150,
@@ -19,7 +19,7 @@ const variants = {
     opacity: 1,
     transition: {
       type: "spring",
-      duration: 1.5, // Menetapkan default duration di sini
+      duration: 1.5, // Default duration
     },
   },
 };
@@ -32,7 +32,7 @@ export default function ProdukKamiSection() {
     ownerName: string;
     priceProduct: string;
     selectedEcommerce: string;
-    whatsappNumber: string; // Add this line
+    whatsappNumber: string;
   }
 
   const [productsData, setProductsData] = useState<Product[]>([]);
@@ -51,7 +51,7 @@ export default function ProdukKamiSection() {
             ownerName: data.ownerName,
             priceProduct: data.priceProduct,
             selectedEcommerce: data.selectedEcommerce,
-            whatsappNumber: data.whatsappNumber || "", // Add this line
+            whatsappNumber: data.whatsappNumber || "",
           } as Product;
         });
         setProductsData(productsData);
@@ -67,7 +67,7 @@ export default function ProdukKamiSection() {
 
   if (loading) {
     return (
-      <section className="min-h-screen flex items-center justify-center py-12 ">
+      <section className="min-h-screen flex items-center justify-center py-12">
         <motion.div
           variants={variants}
           initial="offscreen"
@@ -78,7 +78,7 @@ export default function ProdukKamiSection() {
           <h2 className="text-[#2f7d32] text-4xl font-bold mb-8 text-center">
             PRODUK KAMI
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
             {Array.from({ length: 3 }).map((_, index) => (
               <ProdukCardSkeleton key={index} />
             ))}
@@ -89,13 +89,13 @@ export default function ProdukKamiSection() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center py-12 ">
+    <section className="min-h-screen flex items-center justify-center py-12">
       <motion.div
         variants={variants}
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true }}
-        className=" max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto"
+        className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto"
       >
         <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
           <h2 className="text-[#2f7d32] text-4xl font-bold mb-4">
@@ -106,7 +106,7 @@ export default function ProdukKamiSection() {
           </p>
         </div>
         <motion.div
-          className="flex flex-wrap gap-3 justify-center items-center"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center items-center"
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}

@@ -43,8 +43,8 @@ export default function Navbar() {
       <header
         className={`fixed top-0 w-full z-30 transition-all ${
           scrollActive
-            ? "bg-[#2f7d32] text-white shadow-md"
-            : "bg-transparent text-[#2f7d32]"
+            ? "bg-[#2e7d32] text-white shadow-md"
+            : "bg-transparent text-[#2e7d32]"
         }`}
       >
         <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto">
@@ -89,44 +89,41 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Menu */}
-            <ul className="hidden lg:flex items-center">
+            <ul className="hidden font-bold lg:flex items-center space-x-6">
               <li
-                className={`px-4 py-2 mx-2 cursor-pointer hover:text-green-700 ${
+                className={`relative cursor-pointer ${
                   activeLink === "home"
-                    ? scrollActive
-                      ? "border-b-2 border-white text-white"
-                      : "border-b-2 border-green-700 text-green-700"
-                    : ""
-                }`}
+                    ? "text-[#94c207] shadow-[#94c207]"
+                    : "font-bold hover:text-[#94c207]"
+                } transition-all duration-300`}
               >
                 <Link href="/" onClick={() => setActiveLink("home")}>
                   Beranda
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-700 transform scale-x-0 transition-all duration-300"></span>
                 </Link>
               </li>
               <li
-                className={`px-4 py-2 mx-2 cursor-pointer hover:text-green-700 ${
+                className={`relative cursor-pointer ${
                   activeLink === "produk"
-                    ? scrollActive
-                      ? "border-b-2 border-white text-white"
-                      : "border-b-2 border-green-700 text-green-700"
-                    : ""
-                }`}
+                    ? "text-[#94c207] shadow-[#94c207]"
+                    : "font-bold hover:text-[#94c207]"
+                } transition-all duration-300`}
               >
                 <Link href="/produk" onClick={() => setActiveLink("produk")}>
                   Produk
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-700 transform scale-x-0 transition-all duration-300"></span>
                 </Link>
               </li>
               <li
-                className={`px-4 py-2 mx-2 cursor-pointer hover:text-green-700 ${
+                className={`relative cursor-pointer  ${
                   activeLink === "berita"
-                    ? scrollActive
-                      ? "border-b-2 border-white text-white"
-                      : "border-b-2 border-green-700 text-green-700"
-                    : ""
-                }`}
+                    ? "text-[#94c207] shadow-[#94c207]"
+                    : "font-bold hover:text-[#94c207]"
+                } transition-all duration-300`}
               >
                 <Link href="/berita" onClick={() => setActiveLink("berita")}>
                   Berita
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-700 transform scale-x-0 transition-all duration-300"></span>
                 </Link>
               </li>
             </ul>
