@@ -105,13 +105,13 @@ const Footer = () => {
       {/* Footer Bottom Text */}
       <div className="bg-[#2e7d32] w-full py-4 flex flex-col md:flex-row justify-between items-center px-4 text-[#f5f5dc]">
         <div className="mb-2 md:mb-0">
-          <p>&copy; 2024 EcoSmart. All rights reserved.</p>
+          <p>&copy; 2025 EcoSmart. All rights reserved.</p>
         </div>
         <div>
           <p>
             Website by{" "}
             <Link href="https://orenix-studios.com" className="underline">
-              GILGUL Studios
+              ORENIX Studios
             </Link>
           </p>
         </div>
