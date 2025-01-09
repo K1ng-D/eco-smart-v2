@@ -15,6 +15,12 @@ const formatRupiah = (number: string) => {
   }).format(Number(number));
 };
 
+const ecommercePlatforms: Record<string, string> = {
+  tokopedia: "Tokopedia",
+  bukalapak: "Bukalapak",
+  shopee: "Shopee",
+};
+
 const ProductDetail = () => {
   const pathname = usePathname();
   const id = pathname ? pathname.split("/").pop() : null;
@@ -55,23 +61,16 @@ const ProductDetail = () => {
     return <div>Product not found</div>;
   }
 
-  // Create a simple mapping for the ecommerce link to the platform name.
-  const ecommercePlatforms = {
-    tokopedia: "Tokopedia",
-    bukalapak: "Bukalapak",
-    shopee: "Shopee",
-    // Add more platforms as needed
-  };
-
   const ecommerceName =
-    ecommercePlatforms[product.ecommerceLink] || "E-Commerce";
+    ecommercePlatforms[
+      product.ecommerceLink as keyof typeof ecommercePlatforms
+    ] || "E-Commerce";
 
   return (
-    <section className="pt-20 md:py-[120px] xl:py-[120px] py-8 bg-white   antialiased min-h-screen flex justify-center items-center ">
+    <section className="pt-20 md:py-[120px] xl:py-[120px] py-8 bg-white antialiased min-h-screen flex justify-center items-center">
       <TransitionLayout />
       <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
-          {/* Gambar Produk */}
           <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
             <img
               className="w-full rounded-xl dark:hidden max-h-[500px] object-contain"
@@ -85,7 +84,6 @@ const ProductDetail = () => {
             />
           </div>
 
-          {/* Detail Produk */}
           <div className="mt-6 sm:mt-8 lg:mt-0 flex flex-col justify-center">
             <h1 className="text-xl font-semibold text-black sm:text-2xl ">
               {product.productName}
@@ -98,7 +96,6 @@ const ProductDetail = () => {
                 {formatRupiah(product.priceProduct)}
               </p>
 
-              {/* Rating */}
               <div className="flex items-center gap-2 mt-2 sm:mt-0">
                 {[...Array(5)].map((_, index) => (
                   <svg
@@ -106,7 +103,7 @@ const ProductDetail = () => {
                     className={`w-4 h-4 ${
                       index < product.rating
                         ? "text-yellow-300"
-                        : "text-yellow-300"
+                        : "text-gray-300"
                     }`}
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
@@ -119,35 +116,26 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            {/* Tombol WhatsApp */}
             <div className="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
               <a
                 href={`https://wa.me/${product.whatsappNumber}`}
-                title="Contact via WhatsApp"
-                className="mt-4 sm:mt-0 bg-[#2f7d32] hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-white focus:outline-none flex items-center justify-center"
-                role="button"
+                className="mt-4 sm:mt-0 bg-[#2f7d32] hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-white flex items-center justify-center"
               >
                 <FaWhatsapp className="mr-2" /> Contact via WhatsApp
               </a>
             </div>
 
-            {/* Tombol Ecommerce */}
             <div className="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
               <a
-                href={`${product.ecommerceLink}`}
-                title={`Buy via ${ecommerceName}`}
-                className="mt-4 sm:mt-0 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-white focus:outline-none flex items-center justify-center"
-                role="button"
+                href={product.ecommerceLink}
+                className="mt-4 sm:mt-0 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-white flex items-center justify-center"
               >
                 <GiShop className="mr-2" /> {ecommerceName}
               </a>
             </div>
 
-            {/* Deskripsi Produk */}
-            <hr className="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
-            <p className="mb-6 text-gray-500 dark:text-gray-400">
-              {product.descriptionProduct}
-            </p>
+            <hr className="my-6 md:my-8 border-gray-200" />
+            <p className="mb-6 text-gray-500">{product.descriptionProduct}</p>
           </div>
         </div>
       </div>
