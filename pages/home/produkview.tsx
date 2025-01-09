@@ -8,23 +8,21 @@ import Link from "next/link";
 import ProdukCard from "@/components/ProdukCard";
 import ProdukCardSkeleton from "@/components/ProdukCardSkeleton";
 
-function variants() {
-  return {
-    offscreen: {
-      y: 150,
-      opacity: 0,
+// Variants sekarang didefinisikan sebagai objek, bukan fungsi
+const variants = {
+  offscreen: {
+    y: 150,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1.5, // Menetapkan default duration di sini
     },
-    onscreen: ({ duration = 1.5 } = {}) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-
-        duration,
-      },
-    }),
-  };
-}
+  },
+};
 
 export default function ProdukKamiSection() {
   interface Product {
@@ -39,7 +37,6 @@ export default function ProdukKamiSection() {
 
   const [productsData, setProductsData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const setVariants = useMemo(() => variants(), []);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -115,7 +112,7 @@ export default function ProdukKamiSection() {
           viewport={{ once: true, amount: 0.3 }}
         >
           {productsData.slice(0, 3).map((product, index) => (
-            <motion.div key={index} variants={setVariants}>
+            <motion.div key={index} variants={variants}>
               <ProdukCard product={product} />
             </motion.div>
           ))}

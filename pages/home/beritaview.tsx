@@ -8,23 +8,21 @@ import { db } from "@/lib/firebaseConfig";
 import BeritaCard from "@/components/BeritaCard";
 import ProdukCardSkeleton from "@/components/ProdukCardSkeleton";
 
-function variants() {
-  return {
-    offscreen: {
-      y: 150,
-      opacity: 0,
+// Variants didefinisikan sebagai objek di luar komponen
+const variants = {
+  offscreen: {
+    y: 150,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1.5, // Mengatur nilai default untuk duration
     },
-    onscreen: ({ duration = 1.5 } = {}) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-
-        duration,
-      },
-    }),
-  };
-}
+  },
+};
 
 export default function BeritaKamiSection() {
   interface News {
@@ -38,8 +36,8 @@ export default function BeritaKamiSection() {
 
   const [newsData, setNewsData] = useState<News[]>([]);
   const [loading, setLoading] = useState(true);
-  const setVariants = useMemo(() => variants(), []);
 
+  // Mengambil data berita dari Firestore
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -66,6 +64,7 @@ export default function BeritaKamiSection() {
     fetchNews();
   }, []);
 
+  // Format tanggal untuk ditampilkan dengan format Indonesia
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = {
       weekday: "long",
@@ -79,7 +78,7 @@ export default function BeritaKamiSection() {
   if (loading) {
     return (
       <section className="min-h-screen flex items-center justify-center py-12 ">
-        <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto">
+        <motion.div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
             <h2 className="text-[#2f7d32] text-4xl font-bold mb-4">
               BERITA KAMI
@@ -93,7 +92,7 @@ export default function BeritaKamiSection() {
               <ProdukCardSkeleton key={index} />
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
     );
   }
@@ -113,7 +112,7 @@ export default function BeritaKamiSection() {
         viewport={{ once: true, amount: 0.3 }}
       >
         {newsData.slice(0, 3).map((news, index) => (
-          <motion.div key={index} variants={setVariants}>
+          <motion.div key={index} variants={variants}>
             <BeritaCard news={news} />
           </motion.div>
         ))}
@@ -121,7 +120,7 @@ export default function BeritaKamiSection() {
       <div className="mt-12 text-center">
         <Link
           href="/berita"
-          className="py-3 px-4 font-bold inline-flex items-center gap-x-1 text-sm  rounded-full border border-gray-200 bg-white text-[#2f7d32] shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+          className="py-3 px-4 font-bold inline-flex items-center gap-x-1 text-sm rounded-full border border-gray-200 bg-white text-[#2f7d32] shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
         >
           Berita lainnya
           <svg
