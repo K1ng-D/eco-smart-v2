@@ -1,10 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "@/lib/firebaseConfig";
 import ProdukCard from "@/components/ProdukCard";
 import ProdukCardSkeleton from "@/components/ProdukCardSkeleton";
 import TransitionLayout from "@/components/transtition";
+import { db } from "@/lib/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 const page = () => {
   interface Product {
@@ -16,6 +16,7 @@ const page = () => {
     selectedEcommerce: string;
     whatsappNumber: string;
     descriptionProduct: string;
+    ecommerceLink?: string; // Add this if needed and make it optional
   }
 
   const [productsData, setProductsData] = useState<Product[]>([]);
@@ -38,6 +39,7 @@ const page = () => {
             selectedEcommerce: data.selectedEcommerce,
             whatsappNumber: data.whatsappNumber || "",
             descriptionProduct: data.descriptionProduct || "",
+            ecommerceLink: data.ecommerceLink || "", // Ensure this is included
           } as Product;
         });
         setProductsData(productsData);
