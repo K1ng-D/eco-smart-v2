@@ -55,7 +55,40 @@ const NewsDetail = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto my-16">
+        <TransitionLayout />
+        {/* Skeleton Loader */}
+        <div className="max-w-2xl mx-auto">
+          <div className="flex justify-between items-center mb-6">
+            <div className="flex w-full sm:items-center gap-x-5 sm:gap-x-3">
+              <div className="shrink-0">
+                <div className="w-12 h-12 rounded-full bg-gray-300 animate-pulse" />
+              </div>
+              <div className="grow">
+                <div className="flex justify-between items-center gap-x-2">
+                  <div>
+                    <div className="h-4 bg-gray-300 animate-pulse w-32" />
+                    <div className="h-3 bg-gray-300 animate-pulse mt-2 w-24" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-5 md:space-y-8">
+            <div className="space-y-3">
+              <div className="h-6 bg-gray-300 animate-pulse w-48" />
+            </div>
+            <figure>
+              <div className="w-full h-72 bg-gray-300 animate-pulse rounded-xl" />
+            </figure>
+            <div className="h-4 bg-gray-300 animate-pulse w-72 mt-4" />
+            <div className="h-4 bg-gray-300 animate-pulse w-72 mt-2" />
+          </div>
+        </div>
+        {/* End Skeleton Loader */}
+      </div>
+    );
   }
 
   if (!news) {
