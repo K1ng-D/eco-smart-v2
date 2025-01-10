@@ -16,7 +16,7 @@ const page = () => {
     selectedEcommerce: string;
     whatsappNumber: string;
     descriptionProduct: string;
-    ecommerceLink?: string; // Add this if needed and make it optional
+    ecommerceLink?: string;
   }
 
   const [productsData, setProductsData] = useState<Product[]>([]);
@@ -39,7 +39,7 @@ const page = () => {
             selectedEcommerce: data.selectedEcommerce,
             whatsappNumber: data.whatsappNumber || "",
             descriptionProduct: data.descriptionProduct || "",
-            ecommerceLink: data.ecommerceLink || "", // Ensure this is included
+            ecommerceLink: data.ecommerceLink || "",
           } as Product;
         });
         setProductsData(productsData);
@@ -91,13 +91,12 @@ const page = () => {
         </div>
       </section>
 
-      {/* Products Section */}
       <section className="py-12">
         <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-16">
           <h2 className="font-bold text-center mb-8 text-2xl text-[#2f7d32]">
             Produk Kami
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
             {loading
               ? Array.from({ length: itemsPerPage }).map((_, index) => (
                   <ProdukCardSkeleton key={index} />
@@ -106,7 +105,7 @@ const page = () => {
                   <ProdukCard key={product.id} product={product} />
                 ))}
           </div>
-          {/* Pagination Controls */}
+
           <div className="flex justify-center mt-8">
             <button
               onClick={prevPage}

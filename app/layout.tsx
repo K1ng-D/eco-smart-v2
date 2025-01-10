@@ -13,8 +13,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "EcoSmartVillage",
-  description: "EcoSmartVillage",
+  title: "EcoSmart",
+  description: "EcoSmart",
 };
 
 export default function RootLayout({

@@ -15,7 +15,6 @@ const variants = {
 export default function WedoPage() {
   return (
     <div>
-      {/* Activities Section */}
       <motion.div
         id="kegiatan"
         className="w-full pb-[50px] px-6 sm:px-8 lg:px-16"
@@ -25,16 +24,13 @@ export default function WedoPage() {
         viewport={{ once: true }}
       >
         <div className="space-y-8">
-          {/* Title Section */}
           <div className="pb-16">
             <p className="text-3xl sm:text-4xl font-bold text-center text-[#2f7d32]">
               APA YANG KAMI LAKUKAN?
             </p>
           </div>
 
-          {/* Activities Section */}
           <div className="flex flex-col sm:flex-row justify-center gap-8">
-            {/* Activity 1 */}
             <motion.div
               className="w-full sm:w-[30%] bg-[#2f7d32] flex flex-col items-center justify-center px-6 py-8 rounded-lg"
               variants={variants}
@@ -58,7 +54,6 @@ export default function WedoPage() {
               </p>
             </motion.div>
 
-            {/* Activity 2 */}
             <motion.div
               className="w-full sm:w-[30%] border-2 border-[#2f7d32] flex flex-col items-center justify-center px-6 py-8 rounded-lg"
               variants={variants}
@@ -82,7 +77,6 @@ export default function WedoPage() {
               </p>
             </motion.div>
 
-            {/* Activity 3 */}
             <motion.div
               className="w-full sm:w-[30%] bg-[#2f7d32] flex flex-col items-center justify-center px-6 py-8 rounded-lg"
               variants={variants}

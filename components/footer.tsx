@@ -19,7 +19,6 @@ const Footer = () => {
 
   return (
     <>
-      {/* Background Image */}
       <div className="relative w-full h-auto">
         <Image
           src="/assets/image/footerBg.png"
@@ -32,9 +31,7 @@ const Footer = () => {
       </div>
 
       <footer className="bg-[#2c8d32] text-gray-200 py-10 px-4 sm:px-8 md:px-16">
-        {/* Footer Content */}
         <div className="max-w-7xl mx-auto mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left">
-          {/* PESAN */}
           <div className="order-1 md:order-2 space-y-4">
             <h3 className="font-bold text-xl">PESAN</h3>
             <p className="mb-4">
@@ -61,7 +58,6 @@ const Footer = () => {
             </form>
           </div>
 
-          {/* LOGO & NAMA BRAND */}
           <div className="order-2 md:order-1 space-y-4">
             <div className="cursor-pointer flex gap-2 font-bold items-center justify-center md:justify-start text-[20px]">
               <MotionImage
@@ -92,7 +88,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* KONTAK */}
           <div className="order-3 space-y-4">
             <h3 className="font-bold text-xl">KONTAK</h3>
             <p className="mb-2">(027)-2256-8420</p>
@@ -104,7 +99,6 @@ const Footer = () => {
         </div>
       </footer>
 
-      {/* Footer Bottom Text */}
       <div className="bg-[#2e7d32] w-full py-4 flex flex-col md:flex-row justify-between items-center px-4 text-[#f5f5dc]">
         <div className="mb-2 md:mb-0">
           <p>&copy; 2025 EcoSmart. All rights reserved.</p>
@@ -112,8 +106,8 @@ const Footer = () => {
         <div>
           <p>
             Website by{" "}
-            <Link href="https://orenix-studios.com" className="underline">
-              ORENIX Studios
+            <Link href="https://team-anomaless.com" className="underline">
+              Anomaless Studios
             </Link>
           </p>
         </div>

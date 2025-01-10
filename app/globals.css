@@ -7,33 +7,29 @@
   scroll-behavior: smooth;
 }
 
-/* Global Styles */
 html,
 body {
   font-family: var(--font-montserrat);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden; /* Menambahkan overflow-x hidden untuk mencegah scroll horizontal */
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit; /* Pastikan semua elemen menggunakan box-sizing border-box */
+  box-sizing: inherit;
   scroll-behavior: smooth;
 }
 
-/* Menghindari elemen melampaui lebar viewport */
 body {
-  width: 100vw; /* Memastikan body tidak lebih lebar dari layar */
-  overflow-x: hidden; /* Menonaktifkan scroll horizontal */
+  width: 100vw;
+  overflow-x: hidden;
 }
 
-/* Mengatur halaman untuk perangkat kecil */
 @media (max-width: 768px) {
-  /* Memastikan elemen fleksibel dan responsif */
   html,
   body {
     width: 100%;

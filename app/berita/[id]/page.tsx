@@ -58,7 +58,7 @@ const NewsDetail = () => {
     return (
       <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto my-16">
         <TransitionLayout />
-        {/* Skeleton Loader */}
+
         <div className="max-w-2xl mx-auto">
           <div className="flex justify-between items-center mb-6">
             <div className="flex w-full sm:items-center gap-x-5 sm:gap-x-3">
@@ -86,7 +86,6 @@ const NewsDetail = () => {
             <div className="h-4 bg-gray-300 animate-pulse w-72 mt-2" />
           </div>
         </div>
-        {/* End Skeleton Loader */}
       </div>
     );
   }
@@ -99,7 +98,6 @@ const NewsDetail = () => {
     <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto my-16">
       <TransitionLayout />
       <div className="max-w-2xl mx-auto">
-        {/* Avatar Media */}
         <div className="flex justify-between items-center mb-6">
           <div className="flex w-full sm:items-center gap-x-5 sm:gap-x-3">
             <div className="shrink-0">
@@ -121,9 +119,7 @@ const NewsDetail = () => {
             </div>
           </div>
         </div>
-        {/* End Avatar Media */}
 
-        {/* Content */}
         <div className="space-y-5 md:space-y-8">
           <div className="space-y-3">
             <h2 className="text-2xl font-medium md:text-3xl text-center lg:text-left">
@@ -139,10 +135,8 @@ const NewsDetail = () => {
           </figure>
           <p className="text-lg text-gray-800">{news.descriptionNews}</p>
         </div>
-        {/* End Content */}
       </div>
 
-      {/* Recommended News Section */}
       <div className="mt-24">
         <h3 className="text-[#2b7a0b] text-xl font-semibold mb-8 text-center uppercase">
           Artikel Lainnya

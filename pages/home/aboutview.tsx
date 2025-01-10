@@ -56,7 +56,7 @@ export default function AboutPage() {
             <h1 className="text-4xl sm:text-5xl text-center font-bold text-[#2f7d32] mb-8">
               TENTANG KAMI
             </h1>
-            <div className="space-y-6 text-lg">
+            <div className="space-y-6 text-lg px-6">
               <p className="text-gray-700 leading-relaxed">
                 Unit Katon Semilak adalah komunitas bank sampah yang lahir dari
                 semangat kebersamaan warga Gebang, RT 02 RW 16, Banjarsari.

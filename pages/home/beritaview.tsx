@@ -7,7 +7,6 @@ import { db } from "@/lib/firebaseConfig";
 import BeritaCard from "@/components/BeritaCard";
 import ProdukCardSkeleton from "@/components/ProdukCardSkeleton";
 
-// Variants defined outside the component for reusability
 const variants = {
   offscreen: {
     y: 150,
@@ -36,7 +35,6 @@ export default function BeritaKamiSection() {
   const [newsData, setNewsData] = useState<News[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetching news data from Firestore
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -63,7 +61,6 @@ export default function BeritaKamiSection() {
     fetchNews();
   }, []);
 
-  // Formatting date to Indonesian format
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = {
       weekday: "long",

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebaseConfig";
-import { Button } from "@/components/ui/button";
+
 import { FaWhatsapp } from "react-icons/fa";
 import { GiShop } from "react-icons/gi";
 import TransitionLayout from "@/components/transtition";

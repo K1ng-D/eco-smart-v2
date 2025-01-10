@@ -26,8 +26,6 @@ const BeritaCard: React.FC<BeritaCardProps> = ({ news }) => {
     return new Date(dateString).toLocaleDateString("id-ID", options);
   };
 
-  //   console.log("Image URL:", news.imageUrl); // Tambahkan console.log di sini
-
   return (
     <Link
       href={`/berita/${news.id}`}

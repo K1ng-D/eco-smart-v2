@@ -10,7 +10,10 @@ import BookmarkAdd from "@mui/icons-material/BookmarkAddOutlined";
 
 export default function ProdukCardSkeleton() {
   return (
-    <Card variant="outlined" sx={{ width: 370 }}>
+    <Card
+      variant="outlined"
+      sx={{ width: "100%", maxWidth: 370, margin: "0 auto" }}
+    >
       <div>
         <Typography level="h2" sx={{ fontSize: "md", mb: 0.5 }}>
           <Skeleton>Product Name</Skeleton>

@@ -64,7 +64,6 @@ export default function Navbar() {
               EcoSmart
             </Link>
 
-            {/* Hamburger Menu */}
             <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -88,7 +87,6 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Desktop Menu */}
             <ul className="hidden font-bold lg:flex items-center space-x-6">
               <li
                 className={`relative cursor-pointer ${
@@ -129,7 +127,6 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* Mobile Menu */}
           <motion.div
             initial="closed"
             animate={isOpen ? "open" : "closed"}

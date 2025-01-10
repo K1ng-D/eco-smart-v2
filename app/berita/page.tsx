@@ -62,7 +62,6 @@ const page = () => {
         </div>
       </section>
 
-      {/* News Section */}
       <section className="py-12">
         <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-16">
           <h2 className="text-[#2b7a0b] text-2xl font-bold mb-4">

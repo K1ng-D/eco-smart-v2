@@ -3,24 +3,16 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebaseConfig";
-import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import ProdukCard from "@/components/ProdukCard";
 import ProdukCardSkeleton from "@/components/ProdukCardSkeleton";
 
-// Animation variants for framer-motion
 const variants = {
-  offscreen: {
-    y: 150,
-    opacity: 0,
-  },
+  offscreen: { y: 150, opacity: 0 },
   onscreen: {
     y: 0,
     opacity: 1,
-    transition: {
-      type: "spring",
-      duration: 1.5, // Default duration
-    },
+    transition: { type: "spring", duration: 1.5 },
   },
 };
 
@@ -42,18 +34,10 @@ export default function ProdukKamiSection() {
     const fetchProducts = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "products"));
-        const productsData = querySnapshot.docs.map((doc) => {
-          const data = doc.data();
-          return {
-            id: doc.id,
-            imageUrl: data.imageUrl,
-            productName: data.productName,
-            ownerName: data.ownerName,
-            priceProduct: data.priceProduct,
-            selectedEcommerce: data.selectedEcommerce,
-            whatsappNumber: data.whatsappNumber || "",
-          } as Product;
-        });
+        const productsData = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as Product[];
         setProductsData(productsData);
       } catch (error) {
         console.error("Error fetching products data:", error);
@@ -73,12 +57,12 @@ export default function ProdukKamiSection() {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true }}
-          className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto"
+          className="max-w-screen-xl w-full px-6 sm:px-8 lg:px-16 mx-auto"
         >
           <h2 className="text-[#2f7d32] text-4xl font-bold mb-8 text-center">
             PRODUK KAMI
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
             {Array.from({ length: 3 }).map((_, index) => (
               <ProdukCardSkeleton key={index} />
             ))}
@@ -95,7 +79,7 @@ export default function ProdukKamiSection() {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true }}
-        className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto"
+        className="max-w-screen-xl w-full px-6 sm:px-8 lg:px-16 mx-auto"
       >
         <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
           <h2 className="text-[#2f7d32] text-4xl font-bold mb-4">
@@ -106,7 +90,7 @@ export default function ProdukKamiSection() {
           </p>
         </div>
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center items-center"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center"
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
@@ -120,7 +104,7 @@ export default function ProdukKamiSection() {
         <div className="mt-12 text-center">
           <Link
             href="/produk"
-            className="py-3 px-4 inline-flex items-center gap-x-1 text-sm font-bold rounded-full border border-gray-200 bg-white text-[#2f7d32] shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+            className="py-3 px-4 inline-flex items-center gap-x-1 text-sm font-bold rounded-full border border-gray-200 bg-white text-[#2f7d32] shadow-sm hover:bg-gray-50 focus:outline-none"
           >
             Produk lainnya
             <svg

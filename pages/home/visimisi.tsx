@@ -29,7 +29,6 @@ export default function VisiMisiPage() {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-          {/* Misi */}
           <motion.div
             className="w-full sm:w-[48%] h-auto bg-[#2f7d32] flex items-center justify-center p-8 rounded-lg"
             variants={variants}
@@ -60,7 +59,6 @@ export default function VisiMisiPage() {
             </div>
           </motion.div>
 
-          {/* Visi */}
           <motion.div
             className="w-full sm:w-[48%] h-auto border-2 border-[#2f7d32] flex items-center justify-center p-8 rounded-lg"
             variants={variants}
